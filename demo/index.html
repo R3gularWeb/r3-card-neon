@@ -7,20 +7,20 @@
       background: #fafafa;
     }
   </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@600&display=swap" rel="stylesheet"> 
 </head>
 <body>
   <div id="demo"></div>
 
   <script type="module">
-    import { html, render } from 'lit-html';
+    import { html, render } from 'lit';
     import '../dist/r3-card-neon.js';
 
-    const title = 'Hello owc World!';
     render(
       html`
-        <r3-card-neon .title=${title}>
-          some more light-dom
-        </r3-card-neon>
+        <r3-card-neon title="CUSTOM TITLE"></r3-card-neon>
       `,
       document.querySelector('#demo')
     );
