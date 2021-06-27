@@ -4,23 +4,45 @@
   <meta charset="utf-8">
   <style>
     body {
-      background: #fafafa;
+      background: black;
+    }
+
+    r3-card-neon {
+      padding: 5px;
     }
   </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@600&display=swap" rel="stylesheet"> 
 </head>
 <body>
   <div id="demo"></div>
 
   <script type="module">
-    import { html, render } from 'lit-html';
+    import { html, render } from 'lit';
     import '../dist/r3-card-neon.js';
 
-    const title = 'Hello owc World!';
+    document.addEventListener('eventCardSelect', (detail) => {
+      console.log(detail.detail);
+    });
+
     render(
       html`
-        <r3-card-neon .title=${title}>
-          some more light-dom
-        </r3-card-neon>
+        <r3-card-neon
+          image="https://i.pinimg.com/originals/bd/27/ba/bd27ba51768979490047658ef6a92833.jpg" 
+          title="CUSTOM TITLE"
+        ></r3-card-neon>
+
+        <r3-card-neon
+          image="https://wallpapercave.com/wp/wp5982189.jpg" 
+          title="CUSTOM TITLE"
+        ></r3-card-neon>
+
+        <r3-card-neon
+          user="Asuna X"
+          image="https://i.pinimg.com/originals/8a/ce/a9/8acea9261c892e75b0651de1d4f4e0e1.jpg" 
+          title="CUSTOM TITLE ksdjlskjdal"
+        ></r3-card-neon>
       `,
       document.querySelector('#demo')
     );
