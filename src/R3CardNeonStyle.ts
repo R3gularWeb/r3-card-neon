@@ -35,16 +35,23 @@ export default css`
     max-width: 330px;
   }
 
+  #default.content {
+    box-shadow: 0px 0px 2px 2px var(--shadow-green);
+  }
+
+  #hiddenShadow.content {
+    box-shadow: 0px 0px 0px 0px var(--shadow-green);
+  }
+
   .content {
+    background-color: var(--background-content);
     cursor: pointer;
     border-radius: 5px;
-    box-shadow: 0px 0px 2px 2px var(--shadow-green);
     display: grid;
     grid-template-rows: 95px 50%;
     grid-template-areas:
       'a a a a'
       'b . . c';
-    background-color: var(--background-content);
   }
 
   .title,
@@ -71,7 +78,11 @@ export default css`
     margin: auto;
   }
 
-  .content:hover {
+  #default.content:hover {
     box-shadow: 0px 0px 2px 3.5px var(--shadow-green);
+  }
+
+  #hiddenShadow.content {
+    box-shadow: 0px 0px 0px 0px var(--shadow-green);
   }
 `;

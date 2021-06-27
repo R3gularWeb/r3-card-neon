@@ -22,21 +22,26 @@
     import { html, render } from 'lit';
     import '../dist/r3-card-neon.js';
 
+    document.addEventListener('eventCardSelect', (detail) => {
+      console.log(detail.detail);
+    });
+
     render(
       html`
         <r3-card-neon
-          image="https://lh3.googleusercontent.com/proxy/eN5UajCIzCCsYESkeY6l5MfT891I2WMLpTMz-3DlG3hJC-do7NIq20JhAx2Yzmgl_5SXcboBWImptMljzgeo46ILYYoJncAKq_gELwaGAKvyMKgEkNDMI0ebctIb63FLT78SEElbVDx8uZ03iqTjzAcRFlSMXCVyBzlgVtZSwY1DO4Jd44mhCETo0TLD4tjWT83RvPDuWQxU8Ntq_Ptfwi_IyAVNhw" 
+          image="https://i.pinimg.com/originals/bd/27/ba/bd27ba51768979490047658ef6a92833.jpg" 
           title="CUSTOM TITLE"
         ></r3-card-neon>
 
         <r3-card-neon
-          image="https://lh3.googleusercontent.com/proxy/eN5UajCIzCCsYESkeY6l5MfT891I2WMLpTMz-3DlG3hJC-do7NIq20JhAx2Yzmgl_5SXcboBWImptMljzgeo46ILYYoJncAKq_gELwaGAKvyMKgEkNDMI0ebctIb63FLT78SEElbVDx8uZ03iqTjzAcRFlSMXCVyBzlgVtZSwY1DO4Jd44mhCETo0TLD4tjWT83RvPDuWQxU8Ntq_Ptfwi_IyAVNhw" 
+          image="https://wallpapercave.com/wp/wp5982189.jpg" 
           title="CUSTOM TITLE"
         ></r3-card-neon>
 
         <r3-card-neon
-          image="https://lh3.googleusercontent.com/proxy/eN5UajCIzCCsYESkeY6l5MfT891I2WMLpTMz-3DlG3hJC-do7NIq20JhAx2Yzmgl_5SXcboBWImptMljzgeo46ILYYoJncAKq_gELwaGAKvyMKgEkNDMI0ebctIb63FLT78SEElbVDx8uZ03iqTjzAcRFlSMXCVyBzlgVtZSwY1DO4Jd44mhCETo0TLD4tjWT83RvPDuWQxU8Ntq_Ptfwi_IyAVNhw" 
-          title="CUSTOM TITLE"
+          user="Asuna X"
+          image="https://i.pinimg.com/originals/8a/ce/a9/8acea9261c892e75b0651de1d4f4e0e1.jpg" 
+          title="CUSTOM TITLE ksdjlskjdal"
         ></r3-card-neon>
       `,
       document.querySelector('#demo')

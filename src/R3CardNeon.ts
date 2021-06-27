@@ -24,6 +24,21 @@ export class R3CardNeon extends LitElement {
 
   @property({ type: String }) variant = 'default';
 
+  _dispatchEvent() {
+    const detail = {
+      date: this.date,
+      image: this.image,
+      info: this.info,
+      title: this.title,
+      user: this.user,
+      variant: this.variant
+    }
+
+    this.dispatchEvent(new CustomEvent('eventCardSelect', {
+        detail, bubbles: true, composed: true
+    }));
+  }
+
   _getDateNow() {
     const date = new Date();
     const day = date.getDate() > 9 ? `${date.getDate()}` : `0${date.getDay()}`;
@@ -33,7 +48,8 @@ export class R3CardNeon extends LitElement {
   }
 
   get _getClipBox() {
-    return html` <r3-clip-box size="small"></r3-clip-box> `;
+    const user = !this.user ? 'NA' : this.user;
+    return html` <r3-clip-box text="${user}" size="small"></r3-clip-box> `;
   }
 
   get _getDate() {
@@ -42,13 +58,18 @@ export class R3CardNeon extends LitElement {
   }
 
   get _getTitle() {
-    return html` <label class="title">${this.title}</label> `;
+
+    const title = this.title.length > 15
+      ? this.title.substr(0,15) + '...' 
+      : this.title;
+
+    return html` <label class="title">${title}</label> `;
   }
 
   render() {
     return html`
       <div id="card" style="background-image: url(${this.image});">
-        <div class="content">
+        <div id="${this.variant}" class="content" @click="${this._dispatchEvent}">
           ${this._getTitle} ${this._getClipBox} ${this._getDate}
         </div>
       </div>

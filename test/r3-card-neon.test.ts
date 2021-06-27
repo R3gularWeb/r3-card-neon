@@ -58,5 +58,31 @@ describe('R3CardNeon', () => {
       const labelDate = el.shadowRoot?.querySelector('#card .date');
       expect(labelDate?.textContent).to.equal('06/01/2222');
     });
+
+    it('Custom User', async () => {
+      const el = await fixture<R3CardNeon>(html`<r3-card-neon user="Asuna X"></r3-card-neon>`);
+      const r3ClipBox = el.shadowRoot?.querySelector('#card r3-clip-box');
+      const labelClip = r3ClipBox?.shadowRoot?.querySelector('#clip label');
+      expect(labelClip?.textContent).to.equal('AX');
+    });
+
+    it('Large text in dom', async () => {
+      const el = await fixture<R3CardNeon>(html`
+        <r3-card-neon
+          image="https://i.pinimg.com/originals/8a/ce/a9/8acea9261c892e75b0651de1d4f4e0e1.jpg" 
+          title="CUSTOM TITLE ksdjlskjdal"
+        ></r3-card-neon>
+      `);
+      const title = el.shadowRoot?.querySelector('.title');
+      expect(title?.textContent).to.equal('CUSTOM TITLE ks...');
+    });
+
+    it('Get event', async () => {
+      const el = await fixture<R3CardNeon>(html`<r3-card-neon user="Asuna X"></r3-card-neon>`);
+      el._dispatchEvent();
+      el.addEventListener('eventCardSelect', (detail) => {
+        expect(el.user).to.equal(detail);
+      });
+    });
   });
 });
